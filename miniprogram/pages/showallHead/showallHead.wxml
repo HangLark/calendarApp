@@ -1,0 +1,12 @@
+<!--pages/showallHead/showallHead.wxml-->
+<view class="flex justify-center margin-top-lg">
+  - 所有参与者 -
+</view>
+<view class="flex justify-center">
+  <view class="margin-top" style="width:80%;">
+    <block wx:for="{{headshow}}">
+      <view class="cu-avatar round margin-left-xs margin-top margin-right-xs" style="background-image:url({{item}});"></view>
+    </block>
+
+  </view>
+</view>

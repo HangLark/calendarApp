@@ -1,0 +1,120 @@
+/* pages/daily/daily.wxss */
+page{
+  background-color:#F0F0F0;
+}
+
+.personalInfo{
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  padding:20rpx 20rpx 20rpx 20rpx;
+  background-color: white;
+  border-radius: 30rpx;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}
+
+
+.card{
+  margin-top: 30rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  height: 350rpx;
+  border-width: 1rpx;
+  border-style: solid;
+  border-radius: 30rpx;
+  border-color: white;
+  
+}
+
+
+
+.cardTitle{
+  font-size: x-large;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
+
+
+.countDown{
+  font-size: 200%;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin-top: 50rpx;
+}
+
+.dateAndTime{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin-top: 60rpx;
+}
+
+.newDaily{
+  font-size: x-large;
+  width: 100rpx;
+  height: 100rpx;
+  flex-direction: row;
+  text-align: center;
+  border-radius: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 10rpx;
+  right: 10rpx;
+}
+
+.newDaily2{
+  font-size: x-large;
+  width: 100rpx;
+  height: 100rpx;
+  flex-direction: row;
+  text-align: center;
+  border-radius: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: -110rpx;
+  right: 130rpx;
+}
+
+.newDaily3{
+  font-size: x-large;
+  width: 100rpx;
+  height: 100rpx;
+  flex-direction: row;
+  text-align: center;
+  border-radius: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 130rpx;
+  right: -110rpx;
+}
+
+.stickyClass{
+    position: sticky;
+    top: 0 ;
+    z-index: 2;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}
+
+.userinfo-avatar {  
+  overflow:hidden;  
+  display: block;  
+  width: 100rpx;  
+  border-radius: 50%;  
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}
+
+.avatar{
+  overflow:hidden;  
+  display: block; 
+  width: 80rpx;
+  border-radius: 50%;
+  border: 2px solid #fff;  
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}

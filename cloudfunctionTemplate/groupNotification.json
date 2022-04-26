@@ -1,0 +1,15 @@
+[
+  {
+    "name": "通知模板",
+    "value": {
+      "groupMember": [
+        "owT885BplrVzT5GMZLu54KKKvkdU",
+        "owT885N1DJf36xD76uT-ytTmybEo"
+      ],
+      "groupName": "测试通",
+      "title": "事件名",
+      "time": "2020-05-11 00:21",
+      "comment": "comment"
+    }
+  }
+]

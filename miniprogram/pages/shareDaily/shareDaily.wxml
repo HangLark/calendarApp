@@ -1,0 +1,25 @@
+<!--pages/shareDaily/shareDaily.wxml-->
+<view>
+
+  <view class="cu-bar margin-top bg-white">
+    <view class="action">
+      <text class="cuIcon-title text-black text-shadow">来自好友的分享</text>
+    </view>
+  </view>
+  
+  <view class="card bg-{{backgroundColor}}" style="border-color:{{borderColor}}">
+    <view class="cardTitle text-white">{{title}}</view>
+    <view class="countDown text-white">{{leftTime}}</view>
+    <view class="dateAndTime text-white">{{date+"  "+time}}</view>
+  </view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">备注</view>
+		<input bindinput="changeComment" value="{{comment}}"></input>
+	</view>
+
+  <view class="padding flex flex-direction" style="margin-top:50rpx">
+    <button class="cu-btn bg-green  lg" bindtap="addCard">添加到我的日程</button>
+  </view>
+
+</view>

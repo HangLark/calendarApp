@@ -1,0 +1,14 @@
+{
+  "name": "groupNotification",
+  "version": "1.0.0",
+  "description": "Send notification to group members",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "HangLark",
+  "license": "ISC",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

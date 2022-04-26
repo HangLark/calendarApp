@@ -1,0 +1,18 @@
+<view class="donePage">
+  <block wx:for="{{usersList}}" wx:key="item" wx:if="{{item.hide!=true}}">
+    <view class='board shadow-blur {{deleteInfo==item._id?"animation-slide-left animation-reverse":""}} {{item.moveUp==true?"animation-top":""}}' bindtouchstart="slideStart" bindtouchend="slideEnd" data-eventid="{{item._id}}">
+      <view class="rowShow">
+        <view class="imageBox" style="margin-top:8rpx;margin-bottom:8rpx;">
+          <image mode="aspectFill" src="{{item.image}}"></image>
+        </view>
+        <view class="infoBox">
+          <view style="height: 75%;">{{item.title}}</view>
+          <view style="height: 25%;">{{item.date}}</view>
+        </view>
+        <view class="moveButton text-center" data-eventid="{{item._id}}" bindtap="moveItem">
+          <view class="cu-btn round line-red" role="button" aria-disbled="false">移除</view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

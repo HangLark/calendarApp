@@ -1,0 +1,30 @@
+<!--pages/userCenterItems/suggestions/suggestions.wxml-->
+<view class="cu-bar bg-white solid-bottom margin-top">
+  <view class="action">
+    <text class="cuIcon-title text-orange"></text> 评分
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-green shadow" bindtap="numSteps">加分</button>
+  </view>
+</view>
+<view class="bg-white padding">
+  <view class="cu-steps">
+    <view class="cu-item {{index>num?'':'text-blue'}}" wx:for="{{numList}}" wx:key>
+      <text class="num" data-index="{{index + 1}}"></text> {{item.name}}
+    </view>
+  </view>
+</view>
+
+<view class="cu-form-group align-start margin-top">
+		<view class="title">建议</view>
+		<textarea maxlength="-1"  placeholder="请在此填写您的建议"></textarea>
+</view>
+
+<view class="cu-form-group align-start margin-top">
+		<view class="title">bug反馈</view>
+		<textarea maxlength="-1"   placeholder="请在此填写您的发现的bug"></textarea>
+</view>
+
+<view class="padding flex flex-direction" bindtap="ok">
+  <button class="cu-btn bg-olive lg">确定</button>
+</view>

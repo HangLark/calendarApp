@@ -1,0 +1,58 @@
+<view class="subPage" style="height:{{windowHeight}}px;">
+  <view style="height:8%;">
+    <scroll-view scroll-x style="width:100%;" scroll-into-view="a{{scrollView}}" scroll-with-animation="true">
+      <view class="tabbar">
+        <view class="tabbar-nav">
+          <view id="a{{item.id}}" class="eachtab" style="line-height: {{windowHeight*0.07}}px;background: #fff;border-bottom:solid 1rpx lightgray;" wx:for="{{tabnav.tabitem}}" wx:key="id" bindtap="changetopbar" data-tabindex="{{item.id}}">{{item.text}}
+          </view>
+          <view>
+            <view class="eachtabline" style="width:{{100/tabnav.tabnum}}%;transform:translateX({{100*showtab}}%);"></view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view style="height:92%;">
+    <swiper style="height:100%;" current="{{showtab}}" duration="600" bindchange="changeSwiper">
+      <swiper-item wx:for="{{tabnav.tabitem}}" wx:key="id">
+        <scroll-view scroll-y="true" scroll-x="false" style="height:100%;">
+          <block wx:for="{{subscribeInfo[index]}}" wx:key="item">
+            <view class="cu-card case article" bindtap="lookingTheDetailInfo" data-id="{{item._id}}">
+              <view class="cu-item shadow-blur shadow" style="overflow:hidden;box-shadow: 2px 2px 2px lightgray;">
+                <view class="image">
+                  <image class="image" src="{{item.image}}" mode="aspectFill"></image>
+                </view>
+
+                <view class="title" style="margin-bottom:25rpx;">
+                  <view class="flex justify-between align-center">
+                    <view class="flex flex-direction align-start">
+                      <view class="text-cut">{{item.title}}</view>
+                      <view class="flex" style="margin-top:-20rpx;">
+                        <view class="cu-tag bg-red light sm round" style="font-size:12px;">{{item.date}}</view>
+                        <view class="cu-tag bg-green light sm round" style="font-size:12px;">{{item.chinese_classify}}</view>
+                      </view>
+                    </view>
+                    
+                    <view>
+                      <button wx:if="{{item.subscribed==true}}" class="cu-btn round bg-gray text-white" role="button" style="width:200rpx" bindtap="changeadd" data-subscribed="true" data-id="{{item._id}}">已订阅</button>
+                      <button wx:else class="cu-btn round bg-green text-white" role="button" style="width:200rpx" bindtap="changeadd" data-subscribed="false" data-id="{{item._id}}">订阅</button>
+                    </view>
+                  </view>
+                </view>
+
+                <view class="content">
+                  <view class="desc">
+                    <view style="font-size: 28rpx;color: #888;text-align: justify;">{{item.remarks}}</view>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="addbutton" hidden="{{!showAnimationIcon}}" style="left:{{leftPos}}px;top:{{topPos}}px;" animation="{{addanimation}}" data-id="{{item._id}}">
+    <view>+</view>
+  </view>
+</view>

@@ -1,0 +1,309 @@
+@import'../../../style/animate.wxss';
+
+page{
+  align-items: center;
+}
+
+.bounce{
+  animation-name: scale;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+/*  animation-iteration-count: infinite;*/
+}
+@keyframes scale {  /*定义关键帧、scaleDrew是需要绑定到选择器的关键帧名称*/
+  0%{
+      transform: scale(1);  /*开始为原始大小*/
+  }
+  25%{
+      transform: scale(1.05); /*放大1.1倍*/
+  }
+  50%{
+      transform: scale(1);
+  }
+  75%{
+      transform: scale(1.05);
+  }
+}
+.part{
+  margin-top: 20rpx;
+  padding: 20rpx;
+  padding-bottom: 10rpx;
+  width: 85%;
+  border: 2px solid #ff0000;
+  border-radius: 30rpx;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 1px #888888;
+}
+.idle{
+  width: 85%;
+  height: 300rpx;
+  margin-top: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content:space-around;
+border-radius: 25rpx;
+background: linear-gradient(110.8210951619775deg, rgba(37, 63, 79,1) 5.533854166666667%,rgba(181, 103, 127,1) 53.38541666666667%,rgba(204, 198, 186,1) 96.67968749999999%);
+box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.guide{
+  font-size: 30rpx;
+  font-weight: 700;
+  color: #fff;
+}
+.dateBar{
+  height: 90rpx;
+  margin-top: 20rpx;
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+
+
+}
+.date{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:space-between;
+}
+.dateText{
+  font-size: 28rpx;
+  font-weight: 700;
+  color: #aaaaaa;
+}
+.nickName{
+  font-size: 32rpx;
+  font-weight: 700;
+  color: #000000;
+}
+.btn {
+  width: 200rpx;
+  height: 80rpx;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+  text-align: center;
+/*  background: #000;*/
+  color: #000;
+  font-size: 30rpx;
+  font-weight: 700;
+border-radius: 50px;
+background: linear-gradient(110.8210951619775deg, rgba(217, 124, 152,1) 5.533854166666667%,rgba(234, 220, 34,1) 96.67968749999999%);
+box-shadow:  20px 20px 60px #d9d9d9, 
+             -20px -20px 60px #ffffff;
+}
+.group{
+  margin-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  width:90%;
+  height: 150rpx;
+  justify-content: flex-start;
+
+border-radius: 50px;
+background: #ffffff;
+box-shadow: inset 20px 20px 60px #d9d9d9, 
+            inset -20px -20px 60px #ffffff;
+  
+/*  background-color: #ffffff;*/
+/*  border: 1px solid #000000;*/
+/*  border-radius: 30rpx;*/
+/*  box-shadow: 0px 0px 10px 1px #888888;*/
+}
+.groupImage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.avatar{
+  border-radius: 50%;
+  width:110rpx;
+  height:110rpx;
+  margin-left:30rpx;
+  margin-right: 90rpx;
+  border: 1px solid #aaaaaa;
+  box-shadow: 0px 0px 4px 1px #aaaaaa;
+}
+.groupInfo{
+  width: 300rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.groupName{
+  font-size: 35rpx; 
+  font-weight: 600
+}
+.groupDescription{
+  color: #aeaeae;
+}
+.groupRightSide{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 60rpx;
+}
+.shareImg{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.labelTitle{
+  margin-top:20rpx;
+  margin-right:500rpx;
+  font-size: 45rpx;
+  font-weight: 900;
+}
+
+
+.userinfo-avatar {
+  width: 100rpx;
+  height: 100rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+  background-size: cover;
+  background-color: white;
+}
+ 
+/*mask*/
+.modal_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  background: #000;
+  opacity: 0;
+  overflow: hidden;
+}
+ 
+/*content*/
+.modal_box {
+  width: 650rpx;
+  height: 800rpx;
+  overflow: hidden;
+  position: fixed;
+  top: 40%;
+  left: 0;
+  z-index: 1001;
+  background: #ffffff;
+  margin: -150px 50rpx 0 50rpx;
+  border-radius: 20px;
+  box-shadow: 0px 0px 10px 1px #888888;
+}
+ 
+.drawer_title{
+  padding:15px;
+  font: 20px "microsoft yahei";
+  font-weight:bold;
+  text-align: center;
+}
+.drawer_content {
+  height: 300px;
+  overflow-y: scroll; 
+}
+
+textarea{
+  height:90rpx;
+  width: 570rpx;
+}
+.createInput{
+  padding-top: 10rpx;
+  height: 25rpx;
+  width: 570rpx;
+}
+.line{
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.avatarLine{
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  height: 200rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content:stretch;
+  flex-wrap: wrap;
+  margin-bottom: 60rpx;
+}
+.groupAvatar{
+  margin-top: 20rpx;
+  width: 90rpx;
+  height: 90rpx;
+  border: 1px solid #707070;
+  border-radius: 50%;
+  overflow:hidden;
+}
+.selected{
+  border: 5px solid #00d812;
+}
+.split{
+  background-color: #000000;
+  opacity: 0.05;
+  height: 2px;
+  margin: 20rpx;
+}
+.tag{
+  width: 300rpx;
+  font-size:35rpx; 
+  font-weight:500;
+}
+
+
+.btn_ok{
+  padding: 10px;
+  font: 20px "microsoft yahei";
+  text-align: center;
+  border-top: 1px solid #E8E8EA;
+  color: #3CC51F;
+}
+ 
+
+
+ 
+
+
+ 
+input {
+
+	background: #fff;
+	color:#000 ;
+}
+
+.pswLine{
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.note{
+  color: #aaaaaa;
+}
+.query_num_block{
+  width: 60%;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-around;
+}
+.num_item_block{
+  height: 60rpx;
+  width:56rpx;
+  border-bottom:5rpx solid rgba(59,147,58,.55);
+  line-height: 60rpx;
+  text-align: center;
+  font-size: 50rpx;
+  color: #000;
+}
+.hidden_ipt{
+  height: 0rpx;
+  width:0rpx;
+  border:none;
+  margin:0;
+}

@@ -1,0 +1,71 @@
+.donePage {
+	display: flex;
+	flex-direction: column;
+	margin-left: 20rpx;
+	margin-right: 20rpx;
+}
+
+.board {
+	margin-top: 25rpx;
+	height: 200rpx;
+	background-color: white;
+	box-shadow: 3px 3px 3px lightgray;
+	border-radius: 10px;
+}
+
+.rowShow {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+
+.imageBox {
+	height: 93%;
+	width: 250rpx;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.imageBox image {
+	margin-top: -40%;
+}
+
+.infoBox {
+	width: 300rpx;
+	margin-left: 10rpx;
+	margin-right: 20rpx;
+	display: flex;
+	flex-direction: column;
+}
+
+.infoBox view {
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.moveButton {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.animation-top{
+	animation-duration: .5s;
+	animation-timing-function:ease-out;
+	animation-fill-mode: both;
+	animation-name: move-top;
+}
+
+@keyframes move-top {
+    0% {
+        transform: translateY(0)
+    }
+
+    100% {
+        transform: translateY(-175rpx)
+    }
+}

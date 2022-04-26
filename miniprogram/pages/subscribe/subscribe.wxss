@@ -1,0 +1,87 @@
+.subpage {
+  height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.tabbar {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+}
+
+.tabbar-nav {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+  position: relative;
+}
+
+.eachtab {
+  width: 25%;
+  text-align: center;
+  min-width: 25%;
+}
+
+.eachtabline {
+  position: absolute;
+  left: 0;
+  bottom: -1rpx;
+  height: 6rpx;
+  background-color: #f7982a;
+  transition: all 0.6s;
+}
+
+.cardBoard {
+  width: 690rpx;
+  height: 400rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-top: 20rpx;
+  border-radius: 10px;
+  box-shadow: 4px 6px 2px #aaa;
+  overflow: hidden;
+  position: relative;
+}
+
+.imgBackgroud {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.imgBackgroud image {
+  width: 100%;
+}
+
+.addbutton {
+  position: absolute;
+  top: 10rpx;
+  right: 20rpx;
+  width: 80rpx;
+  height: 80rpx;
+  font-size: 35px;
+  color: white;
+  border-radius: 50%;
+  background-color: orchid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+.doneMeau {
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.doneMeau image {
+  width: 50px;
+  height: 50px;
+}

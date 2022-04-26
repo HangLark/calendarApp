@@ -1,0 +1,41 @@
+<!--pages/group/groupShare/groupShare.wxml-->
+
+<view class="card animated fadeIn">
+  <view class="card-content">
+    <view class="card-info">
+      <view class="line"><text class="groupName">{{group.name}}</text></view>
+      <view class="line"><text class="groupDescription">{{group.description}}</text></view>
+      <view class="line"><text class="groupDescription">创建者：{{createrUserInfo.userInfo.nickName}}</text></view>
+      <view class="line"><text class="groupDescription">已有{{memberCount}}人加入此群组</text></view>
+      <view class="memberAvatars">
+        <view class="cu-avatar-group">
+          <view class="cu-avatar round lg" wx:for="{{memberAvatars}}" wx:key style="background-image:url({{item}});"></view>
+        </view>
+      </view>
+    </view>
+    <view class="card-name">
+      <text class="groupTag">Group</text>
+    </view>
+  </view>
+
+
+</view>
+
+<view class="joinBtn">
+  <button bindtap="joinGroup" disabled="{{joined}}" data-groupId="{{sharedGroupId}}">{{joinButtonContent}}</button>
+</view>
+
+<view class='container' wx:if="{{pswInput}}">
+  <view class='mask' bindtap="close"></view>
+  <!-- 输入核验码 -->
+  <view class="query">
+    <view class="query_item_name">
+      <text class='query-title'>输入密码</text>
+    </view>
+    <view class="query_num_block">
+        <input type='number' class="num_item_block" wx:for="{{4}}" wx:key="{{index}}" disabled bindtap='onFocus' value="{{iptValue.length>=index+1?iptValue[index]:''}}" />
+    </view>
+    <input type='number' class='hidden_ipt' maxlength="{{4}}" focus="{{isFocus}}" bindinput="setValue"></input>
+    <view class="confirm" bindtap='examine'>确认</view>
+  </view>
+</view>

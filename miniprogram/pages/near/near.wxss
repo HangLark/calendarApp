@@ -1,0 +1,48 @@
+/* pages/near/near.wxss */
+page {
+  background: #ffffff;
+}
+.searchCon {
+  height: 30rpx;
+  line-height: 80rpx;
+  margin-top: 50rpx;
+  background: white;
+  border-radius: 6px;
+  width: 70%;
+}
+.stickyClass {
+  position: sticky;
+  top: 5px;
+  z-index: 2;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.mapView {
+  width: 100%;
+  margin-top: -130rpx;
+}
+.backCenter {
+  position: absolute;
+  bottom: 30rpx;
+  right: 30rpx;
+}
+.mapCon {
+  width: 100%;
+  height: 500rpx;
+  z-index: 0;
+}
+.nearInfoBoard {
+  position: relative;
+  border-top: solid 1.2px lightgray;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+.tagShow{
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+.taptap{
+  opacity: 0.7;
+  transform: scale(0.95,0.95);
+  transition-duration: 0s;
+}

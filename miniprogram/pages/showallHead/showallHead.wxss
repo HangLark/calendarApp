@@ -1,0 +1,4 @@
+/* pages/showallHead/showallHead.wxss */
+page{
+  background-color: white;
+}

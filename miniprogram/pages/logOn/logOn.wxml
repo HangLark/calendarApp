@@ -1,0 +1,18 @@
+<!--pages/logOn/lo\gOn.wxml-->
+<view class="board animated bounceInDown" >
+	<view class="logoView"> 
+		<text class="title animated bounceInDown">终日程</text>
+	</view>
+	<view class="logOnBtnView {{animation}}" style="background: url({{avatarUrl}});background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;" >
+		<button 
+	      open-type="getUserInfo" 
+	      bindgetuserinfo="onGetUserInfo"
+	      class="userinfo-avatar"
+	    ></button>
+	</view>
+	<text class="intro">
+		点击头像使用您的微信账户登录
+	</text>
+</view>
+
+ 

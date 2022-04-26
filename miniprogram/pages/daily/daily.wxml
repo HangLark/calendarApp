@@ -1,0 +1,211 @@
+<!--pages/daily/daily.wxml-->
+<view>  
+  <view class="flex solid-bottom justify-between text-xl personalInfo margin-top">
+    <view class="flex justify-start" style="height:80rpx;">
+      <view class="avatar">
+        <open-data  type="userAvatarUrl"></open-data>
+      </view>
+      <view style="display: flex;align-items: center;justify-content: center;">
+        <text decode="true"> &ensp;&ensp; </text>
+        <open-data type="userNickName"></open-data>
+      </view>
+    </view>
+    <view>
+     
+      
+    </view>
+    <view  class="margin-right" style="display: flex;align-items: center;justify-content: center;" bindtap="help">
+      <text class="text-green">使用帮助</text>
+      <text class="cuIcon-right text-green"></text>
+    </view>
+  </view>
+
+
+  <view class="flex padding-sm justify-between">
+    <view class="text-xxl text-bold  margin-left text-green">
+      <text class=" cuIcon-calendar text-grey"></text>
+      <text> {{Y}}</text>
+      <text class="text-gray">-</text>
+      <text>{{M}}</text>
+      <text class="text-gray">-</text>
+      <text>{{D}}</text>
+    </view>
+    <view class="text-xxl text-bold margin-right">
+      <text class="cuIcon-notice text-orange"></text>
+    </view>
+  </view>
+
+
+  <view class="bg-white  margin-left margin-right" style="border-radius: 30rpx;box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  ">
+    <view class="flex padding-top justify-around">
+      <view class="text-sl text-green">{{cards.length}}</view>
+      <view class="text-sl text-orange">{{today}}</view>
+    </view>
+    <view class="flex  padding-bottom justify-around padding-top-sm">
+      <view class="text-green">总日程</view>
+      <view class="text-orange">今日日程</view>
+    </view>
+  </view>
+
+  <!--导航栏：我的日程-->
+  <view class="cu-bar margin-top bg-white stickyClass margin-left margin-right" style="border-radius: 30rpx;" bindtap="changeScope">
+      <view class=" margin-left flex justify-start">
+        <view class="margin-xs radius text-xl">
+          <text>我的日程</text>        
+        </view>
+        <view class="text-{{dailyScope==0?'green':'grey'}} margin-xs radius text-xl" id='all'>全部</view>
+        <view class="text-{{dailyScope==1?'green':'grey'}} margin-xs radius text-xl" id='thisDay'>今日</view>
+        <view class="text-{{dailyScope==2?'green':'grey'}} margin-xs radius text-xl" id='near'>附近</view>
+      </view>
+  </view>
+
+  <swiper bindchange="changeScope2" current="{{dailyScope}}" style="height:{{cards.length==0?400:cards.length*380+30}}rpx">
+    <!--全部日程-->
+    <swiper-item>
+        <block wx:if="{{cards.length==0}}">
+          <view class="card bg-gradual-blue shadow-blur" bindtap="createNewCard">
+            <view style="display:inline">   
+              <view class="cardTitle text-white">欢迎━(*｀∀´*)ノ亻!</view>
+            </view>
+            <view class="countDown text-white">快来创建第一个日程吧~</view>
+            <view class="dateAndTime text-white">点击创建</view>
+          </view>
+        </block>
+
+        <block wx:for="{{cards}}" wx:key="item">
+          <view class="card bg-{{item.backgroundColor}} shadow-blur" >
+          
+            <view style="display:inline">   
+              <view class="cu-item text-sl" style="float:right;width:200rpx;margin:0rpx 0rpx 0rpx 0rpx;text-align:right;" bindtap="showActionSheet" id="showActionSheetButton{{index}}">
+                <text class="cuIcon-more  text-white" style="margin-right:10rpx;"></text>
+              </view>
+              <view class="cardTitle text-white">{{item.title}}</view>
+            </view>
+
+            <view class="countDown text-white">{{leftTime[index]}}</view>
+            <block wx:if="{{item.near}}"> 
+                <view class="dateAndTime text-white">{{item.eventAddr.name}}</view>
+            </block>
+            <block wx:else>
+                <view class="dateAndTime text-white">{{item.date+"  "+item.time}}</view>
+            </block>
+            <view class="dateAndTime text-white">{{item.date+"  "+item.time}}</view>
+            <!--底部弹出菜单-->
+              <action-sheet hidden="{{hidden[index]}}" bindchange="listenerActionSheet">
+                <action-sheet-item>
+                  <button open-type="share" id="{{index}}">分享给好友</button>
+                </action-sheet-item>
+                <action-sheet-item id="changeDaily{{index}}" bindtap="changeDaily" class="text-black">更改日程</action-sheet-item>
+                <action-sheet-item id="deleteDaily{{index}}" bindtap="deleteDaily" class="text-black">删除日程</action-sheet-item>
+                <action-sheet-cancel class="text-black">取消</action-sheet-cancel>
+              </action-sheet>
+          </view>
+        </block>
+    </swiper-item>
+
+    <!--今日日程-->
+    <swiper-item>
+        <block wx:if="{{today==0}}">
+          <view class="card bg-gradual-blue shadow-blur" bindtap="createNewCard">
+            <view style="display:inline">   
+              <view class="cardTitle text-white">今日暂无日程</view>
+            </view>
+            <view class="countDown text-white">创建今天第一个日程吧~</view>
+            <view class="dateAndTime text-white">点击创建</view>
+          </view>
+        </block>
+        <block wx:for="{{cards}}" wx:key="item">
+          <block wx:if="{{item.date==YMD}}">
+            <view class="card bg-{{item.backgroundColor}} shadow-blur" >
+            
+              <view style="display:inline">   
+                <view class="cu-item text-sl" style="float:right;width:200rpx;margin:0rpx 0rpx 0rpx 0rpx;text-align:right;" bindtap="showActionSheet" id="showActionSheetButton{{index}}">
+                  <text class="cuIcon-more  text-white" style="margin-right:10rpx;"></text>
+                </view>
+                <view class="cardTitle text-white">{{item.title}}</view>
+              </view>
+
+              <view class="countDown text-white">{{leftTime[index]}}</view>
+              <block wx:if="{{item.near}}"> 
+                <view class="dateAndTime text-white">{{item.eventAddr.name}}</view>
+              </block>
+              <block wx:else>
+                <view class="dateAndTime text-white">{{item.date+"  "+item.time}}</view>
+              </block>
+            </view>
+          </block>
+        </block>
+    </swiper-item>
+
+    <!--附近日程-->
+    <swiper-item>
+      <block wx:if="{{hasnear==0}}">
+          <view class="card bg-gradual-blue shadow-blur" bindtap="createNewCard">
+            <view style="display:inline">   
+              <view class="cardTitle text-white">暂无添加附近日程</view>
+            </view>
+            <view class="countDown text-white">去看看附近的日程吧~</view>
+            <view class="dateAndTime text-white">点击查看</view>
+          </view>
+      </block>
+      <block wx:for="{{cards}}" wx:key="item">
+        <block wx:if="{{item.near}}">
+            <view class="card bg-{{item.backgroundColor}} shadow-blur" >
+            
+              <view style="display:inline">   
+                <view class="cu-item text-sl" style="float:right;width:200rpx;margin:0rpx 0rpx 0rpx 0rpx;text-align:right;" bindtap="showActionSheet" id="showActionSheetButton{{index}}">
+                  <text class="cuIcon-more  text-white" style="margin-right:10rpx;"></text>
+                </view>
+                <view class="cardTitle text-white">{{item.title}}</view>
+              </view>
+
+              <view class="countDown text-white">{{leftTime[index]}}</view>
+              <view class="dateAndTime text-white">{{item.eventAddr.name}}</view>
+            </view>
+        </block>
+      </block>
+    </swiper-item>
+  </swiper>
+
+
+  <!--底部菜单-->
+  <view>
+    <action-sheet hidden="{{actionSheetHideen}}" bindchange="listenerActionSheet">
+      <action-sheet-item>
+                  <button open-type="share" id="{{actionSheetIndex}}">分享给好友</button>
+      </action-sheet-item>
+      <action-sheet-item id="changeDaily{{actionSheetIndex}}" bindtap="changeDaily" class="text-black">
+        更改日程
+      </action-sheet-item>
+      <action-sheet-item id="deleteDaily{{actionSheetIndex}}" bindtap="deleteDaily" class="text-black">
+        删除日程
+      </action-sheet-item>
+      <action-sheet-cancel class="text-black">取消</action-sheet-cancel>
+    </action-sheet>
+  </view>
+
+
+
+
+
+    <view class="bg-orange  newDaily" bindtap="rotate" animation="{{animation}}" >
+        <view class="text-sl" style="text-align:center" >
+          <text class=" cuIcon-add text-white"></text>
+        </view>
+    </view>
+
+    <view class="bg-orange  newDaily2" bindtap="createNewCard" animation="{{animation2}}" >
+        <view class="text-lg" style="text-align:center" >
+          <text class="text-white">日程</text>
+        </view>
+    </view>
+
+    <view class="bg-orange  newDaily3" bindtap="createNewCardNear" animation="{{animation3}}" >
+        <view class="text-lg" style="text-align:center" >
+          <text class="text-white">附近</text>
+        </view>
+    </view>
+
+
+</view>
+

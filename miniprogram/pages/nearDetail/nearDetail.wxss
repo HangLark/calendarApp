@@ -1,0 +1,100 @@
+/* pages/nearDetail/nearDetail.wxss */
+
+.board {
+  background-color: white;
+  height: 200rpx;
+}
+
+.titletext {
+  padding-left: 50rpx;
+  padding-top: 30rpx;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.locationtext {
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  padding-top: 10rpx;
+  font-size: 14px;
+}
+
+.add-and-head {
+  background-color: white;
+  height: 200rpx;
+  position: relative;
+  display: flex;
+}
+
+.buttonSuround {
+  position: relative;
+  top: 80rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+}
+
+.bgchange {
+  position: flex;
+  border-radius: 50%;
+  background-color: rgb(215, 102, 89);
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.addButton {
+  position: absolute;
+  top: 0rpx;
+  border-radius: 50%;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: rgb(212, 88, 74);
+  color: #ede1d9;
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swaveanimation {
+  animation-duration: 4s;
+  animation-name: swave;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+}
+
+@keyframes swave {
+  0% {
+    opacity: 1;
+    width: 120rpx;
+    height: 120rpx;
+  }
+
+  50% {
+    opacity: 0;
+    width: 160rpx;
+    height: 160rpx;
+    margin-left: -20rpx;
+    margin-top: -20rpx;
+  }
+
+  100% {
+    opacity: 1;
+    width: 120rpx;
+    height: 120rpx;
+  }
+}
+
+.joinText{
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	top:240rpx;
+  color:gray;
+}

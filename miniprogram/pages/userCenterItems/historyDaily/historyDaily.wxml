@@ -1,0 +1,76 @@
+
+<block wx:for="{{historyDaily}}">
+  <view class="cu-timeline " >
+    <block wx:if="{{item.first}}"> 
+      <view class="cu-time text-olive" style="width:200rpx;">{{item.date}}</view>
+    </block>
+    <block wx:if="{{item.near}}"> 
+      <view class="cu-item text-red cuIcon-locationfill">
+        <view class="content bg-olive shadow-blur light">
+          <view>
+            <text class="text-bold text-xxl">{{item.title}}</text> 
+          </view>
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-cyan">附近日程</view>
+            <view class="cu-tag line-cyan">{{item.time}}</view>
+          </view>
+
+          <view>
+            <text class="text-bold text-lg">地点:{{item.eventAddr.name}}</text> 
+          </view>
+          <view>
+            <button class="cu-btn block line-orange lg" bindtap="showModal" data-target="{{index}}">
+              <text class="cuIcon-edit"></text>日记
+            </button>
+          </view>
+        </view>
+      </view>
+    
+    </block>
+
+    <block wx:else>
+      <view class="cu-item text-green ">
+        <view class="content bg-cyan shadow-blur light">
+          <view>
+            <text class="text-bold text-xxl">{{item.title}}</text> 
+          </view>
+          <view class="cu-capsule radius">
+            <view class="cu-tag bg-green">普通日程</view>
+            <view class="cu-tag line-green">{{item.time}}</view>
+          </view>
+          <view>
+            <text class="text-bold text-lg">备注:{{item.comment}}</text> 
+          </view>
+          <view>
+            <button class="cu-btn block line-orange lg" bindtap="showModal" data-target="{{index}}">
+              <text class="cuIcon-edit"></text>日记
+            </button>
+          </view>
+        </view>
+      </view>
+    </block>
+    
+  </view>
+
+
+<view class="canui cu-modal {{showmodal?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">日记</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+    <textarea maxlength="-1" bindinput="textareaBInput" placeholder="此日程暂无日记，请在此记录日记" value="{{text}}"></textarea>
+    </view>
+    <view class="cu-bar bg-white justify-end">
+      <view class="action">
+        <button class="cu-btn line-green text-green" bindtap="hideModal">取消</button>
+        <button class="cu-btn bg-green margin-left" bindtap="modifyDiary">确认</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+</block>

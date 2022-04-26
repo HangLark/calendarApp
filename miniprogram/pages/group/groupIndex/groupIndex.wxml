@@ -1,0 +1,111 @@
+<!-- 默认显示 -->
+
+
+
+
+<view class="dateBar">
+  <view class="date"><text class="dateText">{{curMonth}}   {{Today}}   {{weekday}}</text><text class="nickName">{{userInfo.nickName}}</text></view>
+  <view class="btn" bindtap="showCreate" data-op="open">创建群组</view>
+</view>
+
+<view wx:if="{{!(createdGroups.length||joinedGroups.length)}}" class="idle animated bounceIn" bindtap="showCreate" data-op="open">
+  <text class="guide">您还未创建/加入任何群组</text>
+  <text class="guide">打开好友的分享链接即可加入</text>
+  <text class="guide">或单击创建</text>
+
+</view>
+
+
+<!-- 显示部分 -->
+<view wx:if="{{createdGroups.length}}" class="labelTitle">我创建的</view>
+<block wx:for="{{createdGroups}}">
+  <view class="group animated fadeIn {{currentCGroup === index?groupAnimation:' '}}" bindtap="enterGroup" bindlongpress="longPressC" data-groupinfo="{{item}}" data-authority="owner" data-index="{{index}}" data-id="{{item._id}}" data-name="{{item.name}}">
+    <view class="groupImage">
+      <image class="avatar" src='{{item.groupAvatar}}'></image>
+    </view>
+    <view class="groupInfo">
+      <text class="groupName">{{item.name}}</text>
+      <text class="groupDescription">{{item.description}}</text>
+    </view>
+    <view class="groupRightSide" bindtap="onShareAppMessage">
+      <button data-id="{{item._id}}" open-type="share" catchtap="onShareAppMessage">
+        <image class="shareImg" src='cloud://test-ck0ws.7465-test-ck0ws-1301724922/images/share.png'></image>
+      </button>
+    </view>
+  </view>
+<!--   <button data-id="{{item._id}}" bindtap="discardGroup">解散此群组</button> -->
+</block>
+
+<view wx:if="{{joinedGroups.length}}" class="labelTitle">我加入的</view>
+<block wx:for="{{joinedGroups}}">
+  <view class="group animated fadeIn {{currentJGroup === index?groupAnimation:' '}}" bindtap="enterGroup" bindlongpress="longPressJ" data-groupinfo="{{item}}" data-authority="member" data-index="{{index}}" data-id="{{item._id}}" data-name="{{item.name}}">
+    <view class="groupImage">
+      <image class="avatar" src='{{item.groupAvatar}}'></image>
+    </view>
+    <view class="groupInfo">
+      <text class="groupName">{{item.name}}</text>
+      <text class="groupDescription">{{item.description}}</text>
+    </view>
+    <view class="groupRightSide" bindtap="onShareAppMessage">
+      <button data-id="{{item._id}}" open-type="share" catchtap="onShareAppMessage">
+        <image class="shareImg" src='cloud://test-ck0ws.7465-test-ck0ws-1301724922/images/share.png'></image>
+      </button>
+    </view>
+  </view>
+<!--   <button data-id="{{item._id}}" bindtap="leaveGroup">退出此群组</button> -->
+</block>
+
+
+
+
+
+<!-- 创建部分 -->
+<view class="modal_screen" bindtap="showCreate" data-op="close" wx:if="{{showModal}}"></view>
+
+<view animation="{{animationData}}" class="modal_box" wx:if="{{showModal}}">
+  <view class="drawer_title">创建群组</view>
+  <view class="drawer_content">
+    <view class="line">
+      <text class="tag">使用我的头像</text>
+      <switch checked="{{avatarSwitch}}" bindchange="avatarSwitchChange"/>
+    </view>
+    <view class="avatarLine" wx:if="{{!avatarSwitch}}">
+      <block wx:for="{{avatarUrls}}">
+        <view bindtap="avatarClick" data-index="{{index}}">
+          <image class="groupAvatar {{currentAvatar === index?'selected':' '}}" src="{{item}}"/>
+        </view>
+      </block>
+    </view>
+    <view class="split" wx:if="{{avatarSwitch}}"></view>
+    <view class="line">
+      <text class="tag">群名称</text>
+      <input class="createInput" bindblur="inputTitle" placeholder="群组名"/>
+    </view>
+    <view class="split"></view>
+    <view class="line">
+      <text class="tag">群描述</text>
+      <textarea bindblur="inputComment" placeholder="描述"></textarea>
+    </view>
+    <view class="split"></view>
+    <view class="line">
+      <text class="tag">设置密码</text>
+      <text class="note" wx:if="{{privateSwitch}}">请输入四位数字</text>
+      <switch checked="{{privateSwitch}}" bindchange="privateSwitchChange"/>
+    </view>
+    <view class="split" wx:if="{{privateSwitch}}"></view>
+    <view class="pswLine animated fadeIn" wx:if="{{privateSwitch}}">
+      <!-- <text class="tag">密码</text> -->
+      <!-- <input type="number" bindblur="inputPassword" placeholder="设置数字密码"/> -->
+      <view class="query_num_block" wx:if="{{privateSwitch}}">
+        <input type='number' class="num_item_block" wx:for="{{4}}" wx:key="{{index}}" disabled bindtap='onFocus' value="{{psw.length>=index+1?psw[index]:''}}" />
+      </view>
+    </view>
+
+    <!-- <view class="query_num_block" wx:if="{{privateSwitch}}">
+        <input type='number' class="num_item_block" wx:for="{{4}}" wx:key="{{index}}" disabled bindtap='onFocus' value="{{psw.length>=index+1?psw[index]:''}}" />
+    </view> -->
+    <input type='number' class='hidden_ipt' maxlength="{{4}}" focus="{{isFocus}}" bindinput="setValue"></input>
+
+  </view>
+  <view class="btn_ok" bindtap="showCreate" data-op="create">创建</view>
+</view>

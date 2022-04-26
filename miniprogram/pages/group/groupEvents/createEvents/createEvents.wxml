@@ -1,0 +1,60 @@
+<!--pages/createCard/createCard.wxml-->
+<view>
+  <view class="cu-bar margin-top bg-white">
+    <view class="action">
+      <text class="cuIcon-title text-black text-shadow">日程设置</text>
+    </view>
+  </view>
+
+  <view class="cu-form-group margin-top">
+		<view class="title">标题</view>
+		<input type="text" placeholder="提醒事项" bindinput="titleInput" maxlength="15"></input>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">提醒日期</view>
+		<picker mode="date"  value="{{date}}" start="{{date}}" bindchange="bindDateChange">
+			<view class="picker">
+				{{date}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">提醒时间</view>
+		<picker mode="time"  value="{{time}}" start="00:00" bindchange="bindTimeChange">
+			<view class="picker">
+				{{time}}
+			</view>
+		</picker>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">备注</view>
+		<input bindinput="changeComment" placeholder="无"></input>
+	</view>
+  
+  <view class="cu-form-group margin-top">
+		<view class="title">卡片颜色</view>
+		<picker mode="selector" bindchange="changeColor" value="0" range="{{color2}}">
+			<view class="picker bg-{{color1[colorSelected]}}" style="width:90rpx;height:30rpx;float:right;border-radius: 10rpx;">
+			
+			</view>
+		</picker>
+	</view>
+
+  <!--显示卡片-->
+  <view class="card bg-{{color1[colorSelected]}} shadow-blur">
+    <view class="cardTitle text-white" >{{title}}</view>    
+    <view class="countDown text-white">{{leftTime}}</view>
+    <view class="dateAndTime text-white">{{date+"  "+time}}</view>
+  </view>
+  
+
+  <view class="padding flex flex-direction" style="margin-top:50rpx">
+    <button class="cu-btn bg-green  lg" bindtap="addCard">确认创建</button>
+    <button class="cu-btn bg-grey  lg" bindtap="cancel" style="margin-top:30rpx">取消创建</button>
+  </view>
+
+
+</view>

@@ -1,0 +1,12 @@
+<!--pages/userCenterItems/help/help.wxml-->
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>使用帮助</view>
+  <view class='text-content'>
+    <view>Hi！欢迎使用终日程小程序！</view>
+    <view class='margin-top-sm'>此小程序主要分为四个模块：日程、订阅、群组、附近日程</view>
+    <view class='margin-top-sm'>在首页中，你可以点击右下角的+号图标，创建一个普通日程或者附近日程。</view>
+    <view class='margin-top-sm'>普通日程：在你添加普通日程后，会在你设定的时间给你发通知提醒。</view>
+    <view class='margin-top-sm'>附近日程：你可以看到你周围5公里内的人发布的附近日程并参与其中。</view>
+    <view class='margin-top-sm'>群组：创建群组并分享给好友，让他加入群组。群组中的日程会提醒群组中的每一个人</view>
+  </view>
+</view>

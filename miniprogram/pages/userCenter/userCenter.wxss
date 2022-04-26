@@ -1,0 +1,19 @@
+/* pages/userCenter/userCenter.wxss */
+.info{
+  height: 180rpx;
+  border-radius: 30rpx;
+}
+
+.list{
+  margin-top: 80rpx;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);  
+}
+
+.bottom{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 10rpx;
+}

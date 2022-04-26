@@ -1,0 +1,40 @@
+/* pages/createCard/createCard.wxss */
+.card{
+  margin-top: 70rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  height: 350rpx;
+  border-width: 1rpx;
+  border-style: solid;
+  border-radius: 30rpx;
+  border-color: white
+}
+
+.cardTitle{
+  font-size: 200%;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
+
+
+.countDown{
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin-top: 50rpx;
+}
+
+.dateAndTime{
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin-top: 60rpx;
+  font-size: 1.3rem;
+}
+.imageShape{
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}

@@ -1,0 +1,54 @@
+<view class="bg-white" style="height:100%;">
+  <view wx:if="{{!permission}}">
+    <button type="primary" bindtap="askingforpermission">点击授权使用地理位置</button>
+  </view>
+  <view wx:else>
+    <view class="flex basis-xl align-center bg-white stickyClass margin-top-xl margin-left-xl margin-right-xl" style="border-radius:70px;height:80rpx;">
+      <view class="cuIcon-search margin-left text-blue"></view>
+      <input placeholder="搜索" class="margin-left"></input>
+    </view>
+    <view class="mapView">
+      <map id="infoMap" class="mapCon" markers="{{positionMarkers}}" longitude="{{centerLocation.longitude}}" latitude="{{centerLocation.latitude}}" show-location show-compass scale="16" bindregionchange="visionChange" bindmarkertap="chooseMarker">
+        <view class="backCenter cuIcon-refresh text-blue" bindtap="backtoNow" style="font-size:24px"></view>
+      </map>
+    </view>
+
+    <view wx:if="{{nearInfoList.length==0}}">
+      <view class="margin-top bg-white tagShow margin-left-xl margin-right-xl" bindtap="directTonewnear" hover-class="taptap">
+        <view class="text-lg text-center text-bold text-black margin-top-xl margin-left-sm margin-right-sm">暂无附近信息</view>
+        <view class="text-df text-center margin-top-xs margin-left-sm margin-right-sm margin-bottom-xl">点击发布附近信息</view>
+      </view>
+    </view>
+    <view wx:else class="nearInfoBoard bg-white">
+      <view class="grid col-2">
+        <view class="margin-left-sm margin-right-sm" style="width:43%;">
+          <block wx:for="{{nearInfoList}}" wx:key="_id">
+            <view wx:if="{{index%2==0}}" class="margin-top bg-white tagShow" bindtap="chooseOne" hover-class="taptap" data-tapdata="{{item}}">
+              <view wx:if="{{item.imgPath!=''}}">
+                <image mode="widthFix" src="{{item.imgPath}}"></image>
+              </view>
+              <view class="text-lg text-cut text-bold text-left text-black {{item.imgPath==''?'margin-top':'margin-top-xs'}} margin-left-sm margin-right-sm">{{item.title}}</view>
+              <view class="text-df content margin-top-xs margin-left-sm margin-right-sm ">{{item.remarks}}</view>
+              <view wx:if="{{item.eventAddr}}" class="text-sm margin-top-sm margin-left-sm margin-right-sm">地址:{{item.eventAddr.name}}</view>
+              <view class="text-sm margin-top-xs margin-bottom margin-left-sm">{{item.beginDate}} {{item.beginTime}}</view>
+            </view>
+          </block>
+        </view>
+        <view class="margin-left-sm margin-right-sm" style="width:43%;">
+          <block wx:for="{{nearInfoList}}" wx:key="_id">
+            <view wx:if="{{index%2==1}}" class="margin-top bg-white tagShow" bindtap="chooseOne" hover-class="taptap" data-tapdata="{{item}}">
+              <view wx:if="{{item.imgPath!=''}}">
+                <image mode="widthFix" src="{{item.imgPath}}"></image>
+              </view>
+              <view class="text-lg text-cut text-bold text-left text-black {{item.imgPath==''?'margin-top':'margin-top-xs'}} margin-left-sm margin-right-sm">{{item.title}}</view>
+              <view class="text-df content margin-top-xs margin-left-sm margin-right-sm ">{{item.remarks}}</view>
+              <view wx:if="{{item.eventAddr}}" class="text-sm margin-top-sm margin-left-sm margin-right-sm">地址:{{item.eventAddr.name}}</view>
+              <view class="text-sm margin-top-xs margin-bottom margin-left-sm">{{item.beginDate}} {{item.beginTime}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

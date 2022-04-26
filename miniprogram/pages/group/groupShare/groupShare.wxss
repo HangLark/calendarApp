@@ -1,0 +1,128 @@
+/* pages/group/groupShare/groupShare.wxss */
+
+page{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card{
+  margin-top: 70rpx;
+  width:90%;
+  border-radius: 50rpx;
+  background-image:linear-gradient(110.8210951619775deg, rgba(136, 156, 118,1) 5.533854166666667%,rgba(65, 123, 108,1) 53.38541666666667%,rgba(43, 45, 78,1) 96.67968749999999%);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+.card-content{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 50rpx 20rpx;
+}
+.line{
+  margin-top:20rpx;
+  width:500rpx;
+}
+.groupName{
+  color: #ffffff;
+  font-size: 40rpx;
+  font-weight: 700;
+}
+.cardName{
+  margin-top: 40rpx;
+}
+.groupDescription{
+  color: #c6c6c6;
+  font-size: 30rpx;
+}
+.memberAvatars{
+  scale:0.8;
+}
+.joinBtn{
+  margin-top: 60rpx;
+}
+.groupTag{
+  font-size: 50rpx;
+  font-weight: 400;
+  color: rgb(255, 255, 255);
+  text-shadow: rgb(255, 255, 255) 0px 0px 5px, rgb(255, 255, 255) 0px 0px 0px, rgb(255, 255, 255) 0px 0px 10px, rgb(73, 255, 24) 0px 0px 20px, rgb(73, 255, 24) 0px 0px 30px, rgb(73, 255, 24) 0px 0px 40px, rgb(73, 255, 24) 0px 0px 55px, rgb(73, 255, 24) 0px 0px 75px;
+  --darkreader-inline-color:#ffffff;
+  --darkreader-inline-bgimage: initial;
+  --darkreader-inline-bgcolor:#212325;
+}
+.container{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.mask{
+  width:100%;
+  height:100%;
+  background-color:rgba(0,0,0,.5);
+  position:fixed;
+  top:0;
+}
+
+.query {
+  z-index: 999;
+  background-color: #fff;
+  position: fixed;
+  top: 20%;
+  width: 412rpx;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  height: 594rpx;
+  padding: 71rpx 56rpx 55rpx;
+  border-radius: 30rpx;
+}
+.query_item_name{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 120rpx;
+}
+.query-title{
+  font-size: 36rpx;
+  color: #000;
+  margin-bottom: 46rpx;
+}
+.query-text{
+  font-size: 24rpx;
+  color: #707070;
+}
+.query_num_block{
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+.confirm{
+  margin: 58rpx 0 40rpx;
+  width:411rpx;
+  height: 74rpx;
+  background: linear-gradient(to right, #2EB90D , #67E24A); 
+  border-radius: 50rpx;
+  text-align: center;
+  line-height: 74rpx;
+  font-size: 27rpx;
+  color: #fff;
+}
+.num_item_block{
+  height: 107rpx;
+  width:56rpx;
+  border-bottom:5rpx solid rgba(59,147,58,.55);
+  line-height: 107rpx;
+  text-align: center;
+  font-size: 73rpx;
+  color: #000;
+}
+.hidden_ipt{
+  height: 0rpx;
+  width:0rpx;
+  border:none;
+  margin:0;
+}
+.change-phone{
+  font-size: 24rpx;
+  color: #707070;
+}
