@@ -27,7 +27,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "终日程",
+    "navigationBarTitleText": "日程分享",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
