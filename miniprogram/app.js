@@ -11,6 +11,7 @@ App({
         //   此处请填入环境 ID, 环境 ID 可打开云控制台查看
         //   如不填则使用默认环境（第一个创建的环境）
         env: 'test-ck0ws',
+        env: 'calendar-xs80k',
         traceUser: true,
       })
     }

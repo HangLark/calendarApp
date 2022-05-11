@@ -4,7 +4,8 @@ const db = wx.cloud.database();
 const app = getApp();
 
 
-const key = 'HFRBZ-WLIKS-OX7OB-6X4YO-QXXF2-EAB3R'; //使用在腾讯位置服务申请的key
+//const key = 'HFRBZ-WLIKS-OX7OB-6X4YO-QXXF2-EAB3R'; //使用在腾讯位置服务申请的key
+const key = '7YVBZ-UBBLS-LF5OW-66LJ7-WK37F-XJFOB'; //使用在腾讯位置服务申请的key
 const referer = 'Reminder'; //调用插件的app的名称
 const chooseLocation = requirePlugin('chooseLocation');
 
