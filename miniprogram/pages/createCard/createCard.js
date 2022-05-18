@@ -128,7 +128,8 @@ Page({
     }
 
 //请求用户订阅一次 
-      let id = 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs'; // 订阅消息模版id
+      //let id = 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs'; // 订阅消息模版id
+      let id = 'yODqVjfxb5hQQ8DERZ6cz-LHd4x0AZzmFu9DLqlope4';
       if (wx.requestSubscribeMessage) {
         wx.requestSubscribeMessage({
           tmplIds: [id],

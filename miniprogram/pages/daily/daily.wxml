@@ -89,7 +89,7 @@
             <block wx:else>
                 <view class="dateAndTime text-white">{{item.date+"  "+item.time}}</view>
             </block>
-            <view class="dateAndTime text-white">{{item.date+"  "+item.time}}</view>
+            <!-- <view class="dateAndTime text-white">{{item.date+"  "+item.time}}</view> -->
             <!--底部弹出菜单-->
               <action-sheet hidden="{{hidden[index]}}" bindchange="listenerActionSheet">
                 <action-sheet-item>
