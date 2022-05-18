@@ -47,21 +47,33 @@ exports.main = async (event, context) => {
       const result = await cloud.openapi.subscribeMessage.send({
         touser: execTasks[i]._openid,
         lang: 'zh_CN',
+        // data: {
+        //   name1: {
+        //     value: '提醒助手'
+        //   },
+        //   thing3: {
+        //    value: execTasks[i].title
+        //   },
+        //   date8: {
+        //     value: execTasks[i].date + ' ' + execTasks[i].time
+        //   },
+        //   thing9: {
+        //     value: execTasks[i].comment
+        //   }
+        // },
         data: {
-          name1: {
-            value: '提醒助手'
-          },
-          thing3: {
+          thing5: {
            value: execTasks[i].title
           },
-          date8: {
+          date4: {
             value: execTasks[i].date + ' ' + execTasks[i].time
           },
-          thing9: {
+          thing11: {
             value: execTasks[i].comment
           }
         },
-        templateId: 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs',
+        //templateId: 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs',
+        templateId: 'yODqVjfxb5hQQ8DERZ6cz-LHd4x0AZzmFu9DLqlope4',
         miniprogramState: 'developer'
       })
      console.log(result)

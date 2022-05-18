@@ -390,7 +390,8 @@ Page({
     var tempHead = [];
     tempHead.push(values.headImage);
     //请求一次提醒消息发送
-    let subscribeid = 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs';
+    //let subscribeid = 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs';
+    let subscribeid = 'yODqVjfxb5hQQ8DERZ6cz-LHd4x0AZzmFu9DLqlope4';
     if (wx.requestSubscribeMessage){
       wx.requestSubscribeMessage({
         tmplIds: [subscribeid],
