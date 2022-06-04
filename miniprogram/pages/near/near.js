@@ -165,16 +165,38 @@ Page({
       }),
       done: false
     }).get().then(res => {
+
+      //start===========edit by fjh=============
+
+      console.log(res.data)
+
+      var currDate = new Date()
+      var nearList = []
+      for (var n of res.data){
+        if (Date.parse(n.beginDate.replace(/-/g, '/') + ' ' + n.beginTime + ':00') >= currDate) {
+          nearList.push(n)
+        }
+      }
+
+      console.log(nearList)
+
       //该方法的结果已经为按照距离排序
+      // self.setData({
+      //   nearInfoList: res.data
+      // })
+
       self.setData({
-        nearInfoList: res.data
+        nearInfoList: nearList
       })
+
       //对地图标点进行处理
       var markers = []
       var tempMarker = {};
-      for (var j = 0, len = res.data.length; j < len; j++) {
+      // for (var j = 0, len = res.data.length; j < len; j++) {
+      for (var j = 0, len = nearList.length; j < len; j++) {
         tempMarker = {};
-        var tempdata = res.data[j];
+        // var tempdata = res.data[j];
+        var tempdata = nearList[j];
         //marker需要的数据处理
         tempMarker["id"] = j;
         tempMarker["_id"] = tempdata._id;
@@ -197,6 +219,8 @@ Page({
         positionMarkers: markers
       })
     })
+
+    //end=============edit by fjh=============
 
   },
 })

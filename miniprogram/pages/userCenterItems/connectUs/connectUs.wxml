@@ -3,7 +3,7 @@
   <view class='text-center margin-bottom text-lg  text-grey'>关于Reminder</view>
   <view class='text-content'>
     <view>Hi！欢迎使用Reminder日程提醒小程序！</view>
-    <view class='margin-top-sm'>该项目是由四川大学软件学院的三位本科生开发的，用于参与2020年的微信小程序大赛的项目。</view>
+    <view class='margin-top-sm'>该项目是由四川大学计算机学院的四位学生开发的，用于提交《软件项目管理》课程作业的项目。</view>
     <view class='margin-top-sm'>如果你想联系我们，可以发邮件2993831415@qq.com来资讯相关信息。</view>
     <view class='margin-top-sm'>更多功能敬请期待！</view>
   </view>

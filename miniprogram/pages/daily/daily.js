@@ -92,9 +92,25 @@ Page({
             res.data.sort(function(a, b) {
               return Date.parse(a.date.replace(/-/g, '/') + ' ' + a.time + ':00') - Date.parse(b.date.replace(/-/g, '/') + ' ' + b.time + ':00')
             })
+
+            // start=======modified by fjh=============
+            var currDate = new Date()
+            var cardList = []
+            for (var c of res.data){
+              if (Date.parse(c.date.replace(/-/g, '/') + ' ' + c.time + ':00') >= currDate) {
+                cardList.push(c)
+              }
+            }
+
+            // that.setData({
+            //   cards: res.data
+            // })
+
             that.setData({
-              cards: res.data
+              cards: cardList
             })
+            // end==========modified by fjh==============
+
             console.log('[数据库] [查询记录] 成功: ', res)
             //初始化hidden数组
             var hide = new Array();
