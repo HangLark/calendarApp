@@ -42,18 +42,6 @@
         "text": "日程"
       },
       {
-        "pagePath": "pages/group/groupIndex/groupIndex",
-        "iconPath": "images/group.png",
-        "selectedIconPath": "images/group2.png",
-        "text": "群组"
-      },
-      {
-        "pagePath": "pages/subscribe/subscribe",
-        "iconPath": "images/subscribe1.png",
-        "selectedIconPath": "images/subscribe2.png",
-        "text": "订阅"
-      },
-      {
         "pagePath": "pages/near/near",
         "iconPath": "images/map.png",
         "selectedIconPath": "images/map2.png",
