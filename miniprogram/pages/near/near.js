@@ -168,8 +168,6 @@ Page({
 
       //start===========edit by fjh=============
 
-      console.log(res.data)
-
       var currDate = new Date()
       var nearList = []
       for (var n of res.data){
@@ -177,8 +175,6 @@ Page({
           nearList.push(n)
         }
       }
-
-      console.log(nearList)
 
       //该方法的结果已经为按照距离排序
       // self.setData({
