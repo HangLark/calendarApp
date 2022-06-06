@@ -21,7 +21,7 @@ exports.main = async (event, context) => {
           value: '测试备注'
         }
       },
-      templateId: 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs',
+      templateId: 'yODqVjfxb5hQQ8DERZ6cz-LHd4x0AZzmFu9DLqlope4',
       miniprogramState: 'developer'
     })
     console.log(result)

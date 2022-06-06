@@ -28,7 +28,8 @@ exports.main = async (event, context) => {
 async function requestSubscribeMessage(event) {
   // 此处为模板 ID，开发者需要到小程序管理后台 - 订阅消息 - 公共模板库中添加模板，
   // 然后在我的模板中找到对应模板的 ID，填入此处
-  return 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs' // 如 'N_J6F05_bjhqd6zh2h1LHJ9TAv9IpkCiAJEpSw0PrmQ'
+  //return 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs' // 如 'N_J6F05_bjhqd6zh2h1LHJ9TAv9IpkCiAJEpSw0PrmQ'
+  return 'yODqVjfxb5hQQ8DERZ6cz-LHd4x0AZzmFu9DLqlope4'
 }
 
 async function sendSubscribeMessage(event) {
