@@ -1,7 +1,7 @@
 <!--pages/logOn/lo\gOn.wxml-->
 <view class="board animated bounceInDown" >
 	<view class="logoView"> 
-		<text class="title animated bounceInDown">终日程</text>
+		<text class="title animated bounceInDown">日程分享应用</text>
 	</view>
 	<view class="logOnBtnView {{animation}}" style="background: url({{avatarUrl}});background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;" >
 		<button 

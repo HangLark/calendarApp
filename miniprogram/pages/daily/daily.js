@@ -37,11 +37,11 @@ Page({
      * @author:HangLark
      * @description: Jump to Log on page
      */
-    // if (!wx.getStorageSync('loggedOn')) {
-    //   wx.redirectTo({
-    //     url: '../logOn/logOn',
-    //   })
-    // }
+    if (!wx.getStorageSync('loggedOn')) {
+      wx.redirectTo({
+        url: '../logOn/logOn',
+      })
+    }
 
     //End
 
