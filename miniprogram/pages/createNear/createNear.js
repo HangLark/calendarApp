@@ -362,8 +362,8 @@ Page({
     }).then(console.log)
   },
 
-  create(){
-    let that=this;
+  async create(){
+    var that=this;
     var values=that.data;
     var resId;
     console.log(values);
@@ -386,6 +386,38 @@ Page({
       })
       return;
     }
+
+    //start===============edit by fjh
+    // 合法性检测
+    var label = await function(){
+      return new Promise((resolve, reject) => {
+        wx.showLoading({
+          mask: true,
+        })
+        wx.cloud.callFunction({
+          name: "filter",
+          data: {
+            text: values.title + values.remarks
+          },
+          success: (res) => {
+            resolve(res.result.label)
+          },
+          fail: (err) => {
+            reject(err);
+          }
+        })
+        wx.hideLoading()
+      })
+    }()
+
+    if (label) {
+      wx.showToast({
+        title: "内容违规",
+        icon: "none"
+      })
+      return
+    }
+    //end=================edit by fjh
 
     var tempHead = [];
     tempHead.push(values.headImage);
