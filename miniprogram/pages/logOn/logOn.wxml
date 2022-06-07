@@ -6,13 +6,20 @@
 	<view class="logOnBtnView {{animation}}" style="background: url({{avatarUrl}});background-repeat:no-repeat; background-size:100% 100%;-moz-background-size:100% 100%;" >
 		<button 
 	      open-type="getUserInfo" 
-	      bindgetuserinfo="onGetUserInfo"
+	      bindtap="onGetUserInfo"
 	      class="userinfo-avatar"
 	    ></button>
 	</view>
 	<text class="intro">
-		点击头像使用您的微信账户登录
-	</text>
+		点击头像授权使用您的微信账户
+  </text>
+  
+  <view class="userinfo">
+    <block wx:if="{{hasUserInfo}}">
+      <button bindtap="register"> 登录 </button>
+    </block>
+  </view>
+
 </view>
 
  

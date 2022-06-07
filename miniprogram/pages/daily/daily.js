@@ -27,6 +27,8 @@ Page({
     actionSheetIndex: 0,
     actionSheetHideen: true,
     hasnear: 0, //附近日程个数
+    userInfo:{},
+    avatarUrl:''
   },
 
   /**
@@ -42,6 +44,17 @@ Page({
         url: '../logOn/logOn',
       })
     }
+    var _this=this;
+    wx.getStorage({
+      key: 'userInfo',
+      success (res) {
+        console.log(res);
+        _this.setData({
+          avatarUrl: res.data.avatarUrl,
+          userInfo: res.data
+        })
+      }
+    })
 
     //End
 

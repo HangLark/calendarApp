@@ -1,19 +1,22 @@
 <!--pages/daily/daily.wxml-->
 <view>  
   <view class="flex solid-bottom justify-between text-xl personalInfo margin-top">
-    <view class="flex justify-start" style="height:80rpx;">
-      <view class="avatar">
-        <open-data  type="userAvatarUrl"></open-data>
+    
+
+    <view class="info bg-white  " style="display: flex;align-items: center;">
+  <view class="flex padding-sm justify-start">
+    <view class="cu-avatar lg round margin-left" style="background-image:url({{userInfo.avatarUrl}});"></view>
+    <view class="margin-left" style="display: flex;flex-direction: column;">
+      <view class="text-black text-xxl">
+        <text class="text-bold">{{userInfo.nickName}}</text>
       </view>
-      <view style="display: flex;align-items: center;justify-content: center;">
-        <text decode="true"> &ensp;&ensp; </text>
-        <open-data type="userNickName"></open-data>
+      <view>
+      {{userInfo.country+"  "+userInfo.province}}
       </view>
     </view>
-    <view>
-     
-      
-    </view>
+  </view>
+</view>
+
     <view  class="margin-right" style="display: flex;align-items: center;justify-content: center;" bindtap="help">
       <text class="text-green">使用帮助</text>
       <text class="cuIcon-right text-green"></text>

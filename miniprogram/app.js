@@ -40,7 +40,7 @@ App({
         else{
           wx.setStorage({
             key: "loggedOn",
-            data: true
+            data: false
           })
         }
         //获取定位权限
