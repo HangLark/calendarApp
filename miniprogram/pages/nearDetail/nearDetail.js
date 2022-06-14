@@ -32,7 +32,8 @@ Page({
     //添加到用户的数据库中
     let that = this;
     //提示用户接收订阅消息
-    let id = 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs'; // 订阅消息模版id
+    //let id = 'D7yEE6kc3dXsqb4JciR3sunbl6lM-L8XMTgBD2pYcVs'; // 订阅消息模版id
+    let id = 'yODqVjfxb5hQQ8DERZ6cz-LHd4x0AZzmFu9DLqlope4';
     if (wx.requestSubscribeMessage) {
       wx.requestSubscribeMessage({
         tmplIds: [id],
