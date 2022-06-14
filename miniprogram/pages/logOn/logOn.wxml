@@ -14,9 +14,9 @@
 		点击头像授权使用您的微信账户
   </text>
   
-  <view class="userinfo">
+  <view class="userinfo" bindtap="register">
     <block wx:if="{{hasUserInfo}}">
-      <button bindtap="register"> 登录 </button>
+      <button> 登录 </button>
     </block>
   </view>
 

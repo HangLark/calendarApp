@@ -3,10 +3,10 @@
     <button type="primary" bindtap="askingforpermission">点击授权使用地理位置</button>
   </view>
   <view wx:else>
-    <view class="flex basis-xl align-center bg-white stickyClass margin-top-xl margin-left-xl margin-right-xl" style="border-radius:70px;height:80rpx;">
+    <!-- <view class="flex basis-xl align-center bg-white stickyClass margin-top-xl margin-left-xl margin-right-xl" style="border-radius:70px;height:80rpx;">
       <view class="cuIcon-search margin-left text-blue"></view>
       <input placeholder="搜索" class="margin-left"></input>
-    </view>
+    </view> -->
     <view class="mapView">
       <map id="infoMap" class="mapCon" markers="{{positionMarkers}}" longitude="{{centerLocation.longitude}}" latitude="{{centerLocation.latitude}}" show-location show-compass scale="16" bindregionchange="visionChange" bindmarkertap="chooseMarker">
         <view class="backCenter cuIcon-refresh text-blue" bindtap="backtoNow" style="font-size:24px"></view>
