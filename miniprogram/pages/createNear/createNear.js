@@ -40,6 +40,8 @@ Page({
 
     endDateShow: "请选择",
     endTimeShow: "请选择",
+    
+    textLegitimacy:true,
   },
 
   titleInput: function(e) {
@@ -361,6 +363,35 @@ Page({
       }
     }).then(console.log)
   },
+  contentCheck:function(){
+    var values=this.data;
+    wx.cloud.callFunction({
+      name: "filter",
+      data: {
+        text: values.title + values.remarks
+      },
+      success: (res) => {
+        var label=res.result.label
+        if (label) {
+          wx.showToast({
+            title: "内容违规",
+            icon: "none"
+          })
+          this.setData({
+            textLegitimacy:false
+          })
+        }else{
+          //console.log("*********没问题")
+          this.setData({
+            textLegitimacy:true
+          })
+        }
+      },
+      fail: (err) => {
+        console.log(err);
+      }
+    })
+  },
 
   async create(){
     var that=this;
@@ -386,38 +417,46 @@ Page({
       })
       return;
     }
-
-    //start===============edit by fjh
-    // 合法性检测
-    var label = await function(){
-      return new Promise((resolve, reject) => {
-        wx.showLoading({
-          mask: true,
-        })
-        wx.cloud.callFunction({
-          name: "filter",
-          data: {
-            text: values.title + values.remarks
-          },
-          success: (res) => {
-            resolve(res.result.label)
-          },
-          fail: (err) => {
-            reject(err);
-          }
-        })
-        wx.hideLoading()
-      })
-    }()
-
-    if (label) {
+    if(!this.data.textLegitimacy){
       wx.showToast({
         title: "内容违规",
         icon: "none"
       })
-      return
+      return;
     }
+
+    //start===============edit by fjh
+    // 合法性检测
+    // var label = await function(){
+    //   return new Promise((resolve, reject) => {
+    //     wx.showLoading({
+    //       mask: true,
+    //     })
+    //     wx.cloud.callFunction({
+    //       name: "filter",
+    //       data: {
+    //         text: values.title + values.remarks
+    //       },
+    //       success: (res) => {
+    //         resolve(res.result.label)
+    //       },
+    //       fail: (err) => {
+    //         reject(err);
+    //       }
+    //     })
+    //     wx.hideLoading()
+    //   })
+    // }()
+
+    // if (label) {
+    //   wx.showToast({
+    //     title: "内容违规",
+    //     icon: "none"
+    //   })
+    //   return
+    // }
     //end=================edit by fjh
+
 
     var tempHead = [];
     tempHead.push(values.headImage);

@@ -9,7 +9,7 @@
 
     <view class="cu-form-group margin-top">
       <view class="title">标题</view>
-      <input type="text" name='title' bindinput="titleInput" placeholder="提醒事项" bindinput="titleInput" maxlength="15"></input>
+      <input type="text" name='title' bindinput="titleInput" placeholder="提醒事项" bindinput="titleInput" bindblur="contentCheck" maxlength="15"></input>
     </view>
     <view class="cu-form-group align-start">
       <view class="title">备注</view>
